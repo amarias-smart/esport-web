@@ -1,26 +1,31 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated reveal reveal-offset="100">
+    <q-header elevated reveal>
       <q-toolbar>
         <q-toolbar-title>
           ESPortal
         </q-toolbar-title>
 
-        <q-btn round flat icon="mdi-newspaper">
+        <q-btn round flat icon="mdi-newspaper" @click="scrollTo('advisories')">
           <q-tooltip content-class="text-uppercase">advisories</q-tooltip>
         </q-btn>
 
-        <q-btn round flat icon="mdi-apps">
+        <q-btn round flat icon="mdi-apps" @click="scrollTo('apps')">
           <q-tooltip content-class="text-uppercase">
             exclusive selections
           </q-tooltip>
         </q-btn>
 
-        <q-btn round flat icon="mdi-calendar">
+        <q-btn round flat icon="mdi-calendar" @click="scrollTo('events')">
           <q-tooltip content-class="text-uppercase">extra sccop</q-tooltip>
         </q-btn>
 
-        <q-btn round flat icon="mdi-server-network">
+        <q-btn
+          round
+          flat
+          icon="mdi-server-network"
+          @click="scrollTo('downtime')"
+        >
           <q-tooltip content-class="text-uppercase">enabling systems</q-tooltip>
         </q-btn>
 
@@ -37,6 +42,8 @@
 </template>
 
 <script>
+import { scroll } from "quasar";
+
 export default {
   name: "MainLayout",
 
@@ -44,6 +51,17 @@ export default {
 
   data() {
     return {};
+  },
+
+  methods: {
+    scrollTo(el) {
+      const { getScrollTarget, setScrollPosition } = scroll;
+      const dom = document.getElementById(el);
+      const target = getScrollTarget(dom);
+      const offset = dom.offsetTop;
+      const duration = 1000;
+      setScrollPosition(target, offset, duration);
+    }
   }
 };
 </script>
