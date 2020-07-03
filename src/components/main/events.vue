@@ -6,14 +6,14 @@
         outlined
         rounded
         v-model="search"
-        class="col-6"
+        class="col-6 col-md-8"
         bg-color="white"
       >
       </q-input>
     </q-card-section>
 
     <q-card-section class="row justify-center q-col-gutter-sm">
-      <div class="col-3" v-for="i in 15" :key="i">
+      <div class="col-6 col-sm-4 col-md-3" v-for="i in 15" :key="i">
         <q-card>
           <q-img
             src="https://picsum.photos/900/400"
@@ -25,7 +25,7 @@
           </q-card-section>
           <q-separator />
           <q-card-actions vertical>
-            <q-btn flat>See More</q-btn>
+            <q-btn flat @click="seeMore">See More</q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import eventDetails from "./events-detail";
+
 export default {
   name: "events",
 
@@ -41,6 +43,15 @@ export default {
     return {
       search: ""
     };
+  },
+
+  methods: {
+    seeMore() {
+      this.$q.dialog({
+        component: eventDetails,
+        parent: this
+      });
+    }
   }
 };
 </script>

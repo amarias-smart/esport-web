@@ -4,6 +4,7 @@
     thumbnails
     infinite
     autoplay
+    :fullscreen.sync="fullscreen"
     height="500px"
     v-model="slide"
     class="bg-grey-10"
@@ -24,6 +25,19 @@
       :name="4"
       img-src="https://cdn.quasar.dev/img/quasar.jpg"
     />
+
+    <template v-slot:control>
+      <q-carousel-control position="bottom-right" :offset="[18, 18]">
+        <q-btn
+          round
+          dense
+          color="white"
+          text-color="primary"
+          :icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+          @click="fullscreen = !fullscreen"
+        />
+      </q-carousel-control>
+    </template>
   </q-carousel>
 </template>
 
@@ -33,7 +47,8 @@ export default {
 
   data() {
     return {
-      slide: 1
+      slide: 1,
+      fullscreen: false
     };
   }
 };

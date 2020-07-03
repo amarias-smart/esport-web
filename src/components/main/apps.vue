@@ -19,8 +19,8 @@
           class="fit text-white"
           :style="`background: ${getPastel()}`"
         >
-          <q-icon size="3em" name="mdi-anchor" />
-          <div class="text-grey-10">Perfomance Reports</div>
+          <q-icon size="3em" name="mdi-anchor" class="q-mb-sm" />
+          <div class="text-grey-10 text-body2">Perfomance Reports</div>
         </q-btn>
       </div>
     </q-card-section>
@@ -47,3 +47,9 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus" scoped>
+* {
+  transition: 0.3s all ease;
+}
+</style>
