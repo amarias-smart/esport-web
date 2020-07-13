@@ -1,8 +1,10 @@
 <template>
   <q-carousel
+    arrows
     animated
     infinite
     navigation
+    control-color="grey-6"
     :fullscreen.sync="fullscreen"
     height="500px"
     v-model="slide"
@@ -12,9 +14,12 @@
       v-for="(pic, i) in pics"
       :key="i"
       :name="i"
-      :img-src="pic"
       class="q-pa-none"
-    />
+    >
+      <q-scroll-area class="fit">
+        <q-img :src="pic" />
+      </q-scroll-area>
+    </q-carousel-slide>
 
     <template v-slot:control>
       <q-carousel-control position="bottom-right" :offset="[18, 18]">
@@ -33,7 +38,7 @@
 
 <script>
 const pics = require.context(
-  "src/statics/advisories",
+  "src/assets/advisories",
   true,
   /^.*\.(png|jpe?g)$/
 );
@@ -47,13 +52,9 @@ export default {
       fullscreen: false,
       pics: pics
         .keys()
-        .map(m => m.replace(".", "statics/advisories"))
-        .sort(() => Math.random() - 0.5)
+        .map(m => m.replace("./", "images/advisories/"))
+        .sort(_ => Math.random() - 0.5)
     };
-  },
-
-  mounted() {
-    console.log(this.pics);
   }
 };
 </script>
