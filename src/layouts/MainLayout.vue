@@ -29,6 +29,10 @@
           <q-tooltip content-class="text-uppercase">enabling systems</q-tooltip>
         </q-btn>
 
+        <q-btn round flat icon="mdi-cog" to="/Settings">
+          <q-tooltip content-class="text-uppercase">settings</q-tooltip>
+        </q-btn>
+
         <q-separator vertical inset dark spaced />
 
         <q-btn flat label="esolve" />
