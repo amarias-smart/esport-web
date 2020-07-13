@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <!-- HEADER -->
     <q-header elevated reveal>
       <q-toolbar>
         <q-toolbar-title>
@@ -39,7 +40,8 @@
       </q-toolbar>
     </q-header>
 
-    <q-page-container>
+    <!-- PAGE -->
+    <q-page-container class="gradient-bg">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -53,10 +55,6 @@ export default {
 
   components: {},
 
-  data() {
-    return {};
-  },
-
   methods: {
     scrollTo(el) {
       const { getScrollTarget, setScrollPosition } = scroll;
@@ -69,3 +67,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.gradient-bg {
+  background: #e6dada;
+  background: -webkit-linear-gradient(to bottom, #e6dada, #274046);
+  background: linear-gradient(to bottom, #e6dada, #274046);
+}
+</style>
