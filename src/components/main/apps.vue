@@ -12,15 +12,21 @@
       </q-input>
     </q-card-section>
 
-    <q-card-section class="row justify-center q-col-gutter-sm">
-      <div class="col-6 col-sm-3 col-md-2" v-for="i in 20" :key="i">
+    <q-card-section key="apps" class="row justify-center q-col-gutter-sm">
+      <div
+        class="col-12 col-xs-6 col-sm-4 col-md-3"
+        v-for="app in getApps"
+        :key="app.id"
+      >
         <q-btn
           stack
           class="fit text-white"
           :style="`background: ${getPastel()}`"
+          style="min-height: 100px;"
+          @click="openUrl(app.url)"
         >
           <q-icon size="3em" name="mdi-anchor" class="q-mb-sm" />
-          <div class="text-grey-10 text-body2">Perfomance Reports</div>
+          <div class="text-grey-10 text-body2">{{ app.title }}</div>
         </q-btn>
       </div>
     </q-card-section>
@@ -28,16 +34,34 @@
 </template>
 
 <script>
+import { openURL } from "quasar";
+
 export default {
   name: "apps",
 
   data() {
     return {
-      search: ""
+      search: "",
+      apps: []
     };
   },
 
+  computed: {
+    getApps() {
+      return this.apps.filter(
+        f => f.title.toLowerCase().indexOf(this.search) > -1
+      );
+    }
+  },
+
+  created() {
+    this.$axios.get("api/get/app_list").then(res => (this.apps = res.data));
+  },
+
   methods: {
+    openUrl(url) {
+      openURL(url);
+    },
     getPastel(n) {
       let hue = Math.floor(Math.random() * 360);
       let pastel = "hsl(" + hue + ", 100%, 80%)";
