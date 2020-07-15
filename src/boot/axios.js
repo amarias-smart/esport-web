@@ -1,4 +1,13 @@
-import Vue from 'vue'
-import axios from 'axios'
+import Vue from "vue";
+import axios from "axios";
 
-Vue.prototype.$axios = axios
+const loc = location;
+const path = loc.origin + loc.pathname;
+const ProdServer = path;
+
+if (process.env.PROD) axios.defaults.baseURL = ProdServer;
+// axios.defaults.withCredentials = true
+
+Vue.prototype.$axios = axios;
+
+export { axios };

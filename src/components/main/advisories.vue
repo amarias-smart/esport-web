@@ -17,7 +17,7 @@
       class="q-pa-none"
     >
       <q-scroll-area class="fit">
-        <q-img :src="pic" />
+        <q-img :src="'uploads/advisories/' + pic" />
       </q-scroll-area>
     </q-carousel-slide>
 
@@ -37,24 +37,21 @@
 </template>
 
 <script>
-const pics = require.context(
-  "src/assets/advisories",
-  true,
-  /^.*\.(png|jpe?g)$/
-);
-
 export default {
   name: "advisories",
 
   data() {
     return {
-      slide: 1,
+      slide: 0,
       fullscreen: false,
-      pics: pics
-        .keys()
-        .map(m => m.replace("./", "images/advisories/"))
-        .sort(_ => Math.random() - 0.5)
+      pics: []
     };
+  },
+
+  created() {
+    this.$axios
+      .get("api/get/advisory_list")
+      .then(res => (this.pics = res.data));
   }
 };
 </script>

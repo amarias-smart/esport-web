@@ -75,7 +75,7 @@ module.exports = function(/* ctx */) {
       open: true, // opens browser window automatically
       proxy: {
         "/api": {
-          target: "http://localhost:54905/",
+          target: "http://localhost:64575/",
           changeOrigin: true
         }
       }
