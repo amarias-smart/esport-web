@@ -2,7 +2,7 @@
   <q-card flat bordered class="bg-grey-3">
     <q-card-section class="row justify-center">
       <q-input
-        label="search for an app..."
+        label="search for an app or tool..."
         outlined
         rounded
         v-model="search"
@@ -25,8 +25,18 @@
           style="min-height: 100px;"
           @click="openUrl(app.url)"
         >
-          <q-icon size="3em" name="mdi-anchor" class="q-mb-sm" />
-          <div class="text-grey-10 text-body2">{{ app.title }}</div>
+          <q-icon
+            v-if="isIcon(app.icon)"
+            size="5em"
+            :name="app.icon"
+            class="q-mb-sm"
+          />
+          <q-avatar v-else square size="5em">
+            <q-img :src="`uploads/apps/${app.icon}`" />
+          </q-avatar>
+          <div class="text-grey-9 text-weight-bold">
+            {{ app.title }}
+          </div>
         </q-btn>
       </div>
     </q-card-section>
@@ -67,6 +77,9 @@ export default {
       let pastel = "hsl(" + hue + ", 100%, 80%)";
 
       return pastel;
+    },
+    isIcon(icon) {
+      return icon.indexOf("mdi-") === 0 ? true : false;
     }
   }
 };
