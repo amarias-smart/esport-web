@@ -75,7 +75,6 @@ export default {
 
   methods: {
     seeMore(data) {
-      console.log(data);
       this.$q.dialog({
         component: eventDetails,
         parent: this,
