@@ -5,10 +5,11 @@
         label="search for an app or tool..."
         outlined
         rounded
+        bg-color="white"
         v-model="search"
         class="col-6"
-        bg-color="white"
       >
+        <q-icon slot="prepend" name="mdi-magnify" />
       </q-input>
     </q-card-section>
 
