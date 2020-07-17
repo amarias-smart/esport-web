@@ -27,21 +27,21 @@
         </q-item>
 
         <q-item-label header>Option(s):</q-item-label>
-        <q-item clickable v-ripple to="/Maintenance/Advisories">
+        <q-item clickable v-ripple to="/Settings/Advisories">
           <q-item-section avatar>
             <q-icon name="mdi-newspaper" />
           </q-item-section>
           <q-item-section>Advisory</q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple exact to="/Maintenance/Apps">
+        <q-item clickable v-ripple exact to="/Settings/Apps">
           <q-item-section avatar>
             <q-icon name="mdi-apps" />
           </q-item-section>
           <q-item-section>Apps</q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/Maintenance/Events">
+        <q-item clickable v-ripple to="/Settings/Events">
           <q-item-section avatar>
             <q-icon name="mdi-calendar" />
           </q-item-section>
@@ -50,7 +50,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="gradient-bg">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -65,3 +65,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.gradient-bg {
+  background: #e6dada;
+  background: -webkit-linear-gradient(to bottom, #e6dada, #274046);
+  background: linear-gradient(to bottom, #e6dada, #274046);
+}
+</style>

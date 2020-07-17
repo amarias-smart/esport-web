@@ -30,7 +30,7 @@
           <q-tooltip content-class="text-uppercase">enabling systems</q-tooltip>
         </q-btn>
 
-        <q-btn round flat v-show="false" icon="mdi-cog" to="/Settings">
+        <q-btn round flat icon="mdi-cog" to="/Settings">
           <q-tooltip content-class="text-uppercase">settings</q-tooltip>
         </q-btn>
 
