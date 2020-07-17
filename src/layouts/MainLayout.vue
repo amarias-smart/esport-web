@@ -3,9 +3,9 @@
     <!-- HEADER -->
     <q-header elevated reveal>
       <q-toolbar>
-        <q-toolbar-title>
-          ESPortal
-        </q-toolbar-title>
+        <q-img src="~assets/esport-min.png" width="100px" />
+
+        <q-toolbar-title> </q-toolbar-title>
 
         <q-btn round flat icon="mdi-newspaper" @click="scrollTo('advisories')">
           <q-tooltip content-class="text-uppercase">advisories</q-tooltip>
@@ -30,7 +30,7 @@
           <q-tooltip content-class="text-uppercase">enabling systems</q-tooltip>
         </q-btn>
 
-        <q-btn round flat icon="mdi-cog" to="/Settings">
+        <q-btn round flat v-show="false" icon="mdi-cog" to="/Settings">
           <q-tooltip content-class="text-uppercase">settings</q-tooltip>
         </q-btn>
 
