@@ -1,6 +1,9 @@
 <template>
   <q-card flat bordered class="bg-grey-3">
-    <q-card-section class="row justify-center">
+    <q-card-section
+      class="row justify-center"
+      v-if="getDowntimeList.length > 0"
+    >
       <q-list bordered class="rounded-borders" style="max-width: 70%" separator>
         <q-item
           clickable
@@ -25,6 +28,12 @@
           </q-item-section>
         </q-item>
       </q-list>
+    </q-card-section>
+
+    <q-card-section v-else class="text-center">
+      <div class="text-h5 text-weight-light text-purple">
+        No new data to show yet...
+      </div>
     </q-card-section>
   </q-card>
 </template>

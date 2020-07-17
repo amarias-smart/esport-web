@@ -41,7 +41,7 @@
     </q-card-section>
 
     <q-card-section v-else class="text-center">
-      <div class="text-h5 text-weight-light">
+      <div class="text-h5 text-weight-light text-teal-7">
         No events to currently show...
       </div>
     </q-card-section>

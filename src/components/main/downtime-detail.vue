@@ -1,13 +1,15 @@
 <template>
   <q-dialog ref="dialog" @hide="onDialogHide">
-    <q-card class="q-dialog-plugin" style="width: 60%;">
+    <q-card class="q-dialog-plugin" style="width: 700px; max-width: 80vw;">
       <q-card-section>
-        <div class="text-h4 text-weight-light text-center q-mb-lg">
+        <div class="text-h4 text-weight-light">
           {{ data.title }}
         </div>
-        <q-separator spaced inset />
-        {{ data }}
+        <div class="text-caption text-grey-8">{{ data.timestamp }}</div>
+        <div class="text-caption">{{ data.description }}</div>
       </q-card-section>
+      <q-separator spaced inset class="q-mb-lg" v-show="data.contents" />
+      <q-card-section v-html="data.contents"> </q-card-section>
     </q-card>
   </q-dialog>
 </template>
