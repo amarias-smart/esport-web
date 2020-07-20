@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh LpR fFf">
+  <q-layout view="hHh LpR fFf" class="gradient-bg">
     <q-header bordered class="bg-primary text-white">
       <q-toolbar>
         <q-toolbar-title>
@@ -19,7 +19,7 @@
           </q-item-section>
           <q-item-section>Main Page</q-item-section>
         </q-item>
-        <q-item clickable v-ripple exact to="/">
+        <q-item clickable v-ripple exact to="/Settings">
           <q-item-section avatar>
             <q-icon name="mdi-cog-outline" />
           </q-item-section>
@@ -50,7 +50,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container class="gradient-bg">
+    <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>

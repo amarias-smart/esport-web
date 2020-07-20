@@ -1,18 +1,54 @@
 <template>
   <div class="mansory cols">
-    <div class="item" v-for="(pic, i) in data" :key="i">
-      <q-card>
-        <q-img :src="'uploads/advisories/' + pic" />
+    <div
+      class="item"
+      v-for="(pic, i) in data"
+      :key="i"
+      style="postition: relative;"
+    >
+      <q-card class="overflow-hidden">
+        <q-btn
+          fab-mini
+          icon="mdi-close"
+          color="red"
+          :style="{
+            position: 'absolute',
+            'z-index': 1,
+            right: 0
+          }"
+          @click="deleteMe(pic)"
+        />
+        <q-img :src="`uploads/advisories/${pic}`" />
       </q-card>
     </div>
   </div>
 </template>
 
 <script>
+import { notify } from "boot/notifier";
 export default {
   name: "Cards",
 
-  props: ["data"]
+  props: ["data"],
+
+  methods: {
+    deleteMe(file) {
+      const fileName = file;
+
+      this.$q
+        .dialog({
+          title: "Delete File:",
+          message: `This will delete "${fileName}"`,
+          ok: "Confirm",
+          color: "red"
+        })
+        .onOk(() => {
+          this.$axios
+            .post(`api/delete/advisory/?id=${fileName}`)
+            .then(_ => this.$router.go());
+        });
+    }
+  }
 };
 </script>
 
