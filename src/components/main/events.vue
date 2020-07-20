@@ -57,12 +57,9 @@ export default {
 
   computed: {
     getEvents() {
-      return this.eventList.map(m => {
-        let timestamp = new Date(m.timestamp);
-        m.timestamp = date.formatDate(timestamp, "Do MMM YYYY");
-        m.attachments = JSON.parse(m.attachments);
-        return m;
-      });
+      return this.eventList.filter(
+        f => f.title.toLowerCase().indexOf(this.search) > -1
+      );
     }
   },
 
@@ -84,9 +81,15 @@ export default {
   },
 
   created() {
-    this.$axios
-      .get("api/get/event_list")
-      .then(res => (this.eventList = res.data));
+    this.$axios.get("api/get/event_list").then(
+      res =>
+        (this.eventList = res.data.map(m => {
+          let timestamp = new Date(m.timestamp);
+          m.timestamp = date.formatDate(timestamp, "Do MMM YYYY");
+          m.attachments = JSON.parse(m.attachments);
+          return m;
+        }))
+    );
   }
 };
 </script>
