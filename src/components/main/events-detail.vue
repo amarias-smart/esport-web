@@ -17,7 +17,10 @@
       </q-bar>
 
       <q-card-section class="text-center">
-        <q-img src="https://picsum.photos/900/400" width="60%" />
+        <q-img
+          :src="`uploads/events/${data.attachments.images[0]}`"
+          width="60%"
+        />
       </q-card-section>
 
       <q-card-section>

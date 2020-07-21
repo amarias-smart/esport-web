@@ -24,7 +24,7 @@
       >
         <q-card class="fit">
           <q-img
-            src="https://picsum.photos/900/400"
+            :src="`uploads/events/${event.attachments.images[0]}`"
             style="width: 100%; object-fit: contain;"
             height="150px"
           />
