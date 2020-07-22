@@ -24,7 +24,7 @@
       >
         <q-card class="fit">
           <q-img
-            :src="`uploads/events/${event.attachments.images[0]}`"
+            :src="`uploads/events/${event.id}/${event.thumbnail}`"
             style="width: 100%; object-fit: contain;"
             height="150px"
           />

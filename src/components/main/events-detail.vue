@@ -18,7 +18,7 @@
 
       <q-card-section class="text-center">
         <q-img
-          :src="`uploads/events/${data.attachments.images[0]}`"
+          :src="`uploads/events/${data.id}/${data.thumbnail}`"
           width="60%"
         />
       </q-card-section>
