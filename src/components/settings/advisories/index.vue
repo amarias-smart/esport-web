@@ -12,7 +12,7 @@
 import uploader from "./uploader";
 
 export default {
-  name: "Advisories",
+  name: "advisories",
 
   components: {
     CARDS: () => import("./cards")
