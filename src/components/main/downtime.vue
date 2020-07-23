@@ -4,7 +4,12 @@
       class="row justify-center"
       v-if="getDowntimeList.length > 0"
     >
-      <q-list bordered class="rounded-borders" style="max-width: 70%" separator>
+      <q-list
+        bordered
+        class="rounded-borders"
+        style="width: 100%; max-width: 70%"
+        separator
+      >
         <q-item
           clickable
           v-ripple
