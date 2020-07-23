@@ -54,8 +54,6 @@
 </template>
 
 <script>
-// import { scroll } from "quasar";
-
 export default {
   name: "MainLayout",
 
@@ -63,12 +61,7 @@ export default {
 
   methods: {
     scrollTo(el) {
-      // const { getScrollTarget, setScrollPosition } = scroll;
       const dom = document.getElementById(el);
-      // const target = getScrollTarget(dom);
-      // const offset = dom.offsetTop;
-      // const duration = 1000;
-      // setScrollPosition(target, offset, duration);
 
       dom.scrollIntoView({ behavior: "smooth", block: "start" });
     }
