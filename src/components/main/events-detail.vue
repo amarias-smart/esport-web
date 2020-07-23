@@ -30,6 +30,21 @@
         <q-separator spaced inset />
         <div v-html="data.contents" style="width: 80%; margin: auto;"></div>
       </q-card-section>
+
+      <q-card-section>
+        <div class="mansory cols">
+          <div
+            class="item shadow-3"
+            v-for="(pic, i) in data.attachments"
+            :key="i"
+            style="position: relative;"
+          >
+            <q-card class="overflow-hidden">
+              <q-img :src="`uploads/events/${data.id}/${pic}`" />
+            </q-card>
+          </div>
+        </div>
+      </q-card-section>
     </q-card>
   </q-dialog>
 </template>
@@ -37,6 +52,12 @@
 <script>
 export default {
   props: ["data"],
+
+  created() {
+    this.$axios.get(`api/get/event_images/${this.data.id}`).then(res => {
+      this.data.attachments = res.data;
+    });
+  },
 
   methods: {
     show() {
@@ -64,11 +85,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.zoom {
-  transition: transform 0.2s;
+.masonry {
+  width: 100%;
+  max-width: 300px;
+  margin: 1em auto;
 }
 
-.zoom:hover {
-  transform: scale(1.7);
+.cols {
+  -moz-column-count: 3;
+  -moz-column-gap: 2%;
+  -moz-column-width: 30%;
+
+  -webkit-column-count: 3;
+  -webkit-column-gap: 2%;
+  -webkit-column-width: 30%;
+
+  column-count: 3;
+  column-gap: 2%;
+  column-width: 30%;
+}
+
+.item {
+  margin-bottom: 20px;
 }
 </style>
