@@ -58,16 +58,14 @@ export default {
     },
 
     deleteEvent(id) {
-      console.log(id);
-
       this.$q.notify({
         position: "top",
-        message: "Delete App",
+        message: "Delete Event",
         caption: "Are you sure you want to delete this?",
         color: "red",
         icon: "mdi-alert-circle-outline",
         progress: true,
-        timeout: "5000",
+        timeout: 5000,
         actions: [
           {
             label: "Confirm",

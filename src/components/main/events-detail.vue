@@ -62,3 +62,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.zoom {
+  transition: transform 0.2s;
+}
+
+.zoom:hover {
+  transform: scale(1.7);
+}
+</style>
