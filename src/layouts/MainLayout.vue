@@ -38,6 +38,12 @@
 
         <q-btn flat label="esolve" />
       </q-toolbar>
+      <q-toolbar inset class="bg-red-3" v-show="$q.platform.is.ie">
+        <div class="text-center fit">
+          <q-icon name="mdi-information-outline" size="sm" />
+          for better performance kindly open ESPort in Google Chrome
+        </div>
+      </q-toolbar>
     </q-header>
 
     <!-- PAGE -->
