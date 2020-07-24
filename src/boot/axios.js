@@ -1,12 +1,10 @@
 import Vue from "vue";
 import axios from "axios";
 
-const loc = location;
-const path = loc.origin + loc.pathname;
-const ProdServer = path;
+if (process.env.PROD)
+  axios.defaults.baseURL = location.origin + location.pathname;
 
-if (process.env.PROD) axios.defaults.baseURL = ProdServer;
-// axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 
 Vue.prototype.$axios = axios;
 
