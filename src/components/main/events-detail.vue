@@ -31,18 +31,16 @@
         <div v-html="data.contents" style="width: 80%; margin: auto;"></div>
       </q-card-section>
 
-      <q-card-section>
-        <div class="mansory cols">
-          <div
-            class="item shadow-3"
-            v-for="(pic, i) in data.attachments"
-            :key="i"
-            style="position: relative;"
-          >
-            <q-card class="overflow-hidden">
-              <q-img :src="`uploads/events/${data.id}/${pic}`" />
-            </q-card>
-          </div>
+      <q-card-section class="mansory cols" v-show="data.attachments.length > 1">
+        <div
+          class="item shadow-3"
+          v-for="(pic, i) in data.attachments"
+          :key="i"
+          style="position: relative;"
+        >
+          <q-card class="overflow-hidden">
+            <q-img :src="`uploads/events/${data.id}/${pic}`" />
+          </q-card>
         </div>
       </q-card-section>
     </q-card>
