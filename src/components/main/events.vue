@@ -72,10 +72,14 @@ export default {
 
   methods: {
     seeMore(data) {
-      this.$q.dialog({
-        component: eventDetails,
-        parent: this,
-        data: data
+      this.$axios.get(`api/get/event_images/${data.id}`).then(res => {
+        data.attachments = res.data;
+
+        this.$q.dialog({
+          component: eventDetails,
+          parent: this,
+          data: data
+        });
       });
     }
   },

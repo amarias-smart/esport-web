@@ -30,7 +30,13 @@
           <q-tooltip content-class="text-uppercase">enabling systems</q-tooltip>
         </q-btn>
 
-        <q-btn round flat icon="mdi-cog" to="/Settings">
+        <q-btn
+          round
+          flat
+          icon="mdi-cog"
+          to="/Settings"
+          v-show="user.length > 0"
+        >
           <q-tooltip content-class="text-uppercase">settings</q-tooltip>
         </q-btn>
 
@@ -57,7 +63,15 @@
 export default {
   name: "MainLayout",
 
-  components: {},
+  data() {
+    return {
+      user: []
+    };
+  },
+
+  created() {
+    this.$axios.get("api/get/userz").then(res => (this.user = res.data));
+  },
 
   methods: {
     scrollTo(el) {

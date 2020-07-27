@@ -1,10 +1,16 @@
 import Vue from "vue";
 import axios from "axios";
 
-if (process.env.PROD)
-  axios.defaults.baseURL = location.origin + location.pathname;
+// const DEV = "http://localhost:64575/";
+const PROD = location.origin + location.pathname;
 
-axios.defaults.withCredentials = true;
+if (process.env.PROD) axios.defaults.baseURL = PROD;
+// axios.defaults.withCredentials = true;
+
+// const axiosInstance = axios.create({
+//   withCredentials: true,
+//   baseURL: process.env.DEV ? DEV : PROD
+// });
 
 Vue.prototype.$axios = axios;
 

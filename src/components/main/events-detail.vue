@@ -31,7 +31,7 @@
         <div v-html="data.contents" style="width: 80%; margin: auto;"></div>
       </q-card-section>
 
-      <q-card-section class="mansory cols" v-show="data.attachments.length > 1">
+      <q-card-section class="mansory cols" v-if="data.attachments.length > 1">
         <div
           class="item shadow-3"
           v-for="(pic, i) in data.attachments"
@@ -50,12 +50,6 @@
 <script>
 export default {
   props: ["data"],
-
-  created() {
-    this.$axios.get(`api/get/event_images/${this.data.id}`).then(res => {
-      this.data.attachments = res.data;
-    });
-  },
 
   methods: {
     show() {

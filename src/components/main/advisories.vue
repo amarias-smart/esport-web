@@ -3,7 +3,6 @@
     arrows
     animated
     infinite
-    navigation
     control-color="grey-6"
     :fullscreen.sync="fullscreen"
     height="500px"
@@ -17,7 +16,7 @@
       class="q-pa-none"
     >
       <q-scroll-area class="fit">
-        <q-img :src="'uploads/advisories/' + pic" />
+        <q-img :src="'uploads/advisories/' + pic" spinner-color="white" />
       </q-scroll-area>
     </q-carousel-slide>
 
