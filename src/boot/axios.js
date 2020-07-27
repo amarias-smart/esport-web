@@ -5,7 +5,7 @@ import axios from "axios";
 const PROD = location.origin + location.pathname;
 
 if (process.env.PROD) axios.defaults.baseURL = PROD;
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 // const axiosInstance = axios.create({
 //   withCredentials: true,
