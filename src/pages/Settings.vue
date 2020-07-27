@@ -27,7 +27,7 @@ import uploader from "src/components/settings/advisories/uploader";
 
 const options = [
   ["green", "mdi-newspaper", "Advisories", "Add, Delete"],
-  ["red", "mdi-apps", "Apps", "Add, Update, Delete"],
+  ["red", "mdi-apps", "Apps", "Update, Delete"],
   ["blue", "mdi-calendar", "Events", "Add, Delete"]
 ];
 
