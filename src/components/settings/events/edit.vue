@@ -15,15 +15,14 @@
 
       <q-separator inset />
 
-      <q-card-section class="row justify-center q-col-gutters-md">
-        <div class="col-4">
-          <q-img
-            v-for="pic in data.attachments"
-            :key="pic"
-            :src="`uploads/events/${data.id}/${pic}`"
-            class="shadow-3 zoom"
-          />
-        </div>
+      <q-card-section class="mansory cols">
+        <q-img
+          v-for="pic in data.attachments"
+          :key="pic"
+          :src="`uploads/events/${data.id}/${pic}`"
+          class="item shadow-3 zoom"
+          style="position: relative;"
+        />
       </q-card-section>
 
       <q-separator inset />
@@ -96,5 +95,30 @@ export default {
 
 .zoom:hover {
   transform: scale(1.7);
+  z-index: 2;
+}
+
+.masonry {
+  width: 100%;
+  max-width: 300px;
+  margin: 1em auto;
+}
+
+.cols {
+  -moz-column-count: 3;
+  -moz-column-gap: 2%;
+  -moz-column-width: 30%;
+
+  -webkit-column-count: 3;
+  -webkit-column-gap: 2%;
+  -webkit-column-width: 30%;
+
+  column-count: 3;
+  column-gap: 2%;
+  column-width: 30%;
+}
+
+.item {
+  margin-bottom: 20px;
 }
 </style>
