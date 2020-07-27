@@ -42,7 +42,13 @@
 
         <q-separator vertical inset dark spaced />
 
-        <q-btn flat label="esolve" />
+        <q-btn
+          flat
+          label="esolve"
+          type="a"
+          href="http://10.122.7.236/esolve/"
+          target="_blank"
+        />
       </q-toolbar>
       <q-toolbar inset class="bg-red-3" v-show="$q.platform.is.ie">
         <div class="text-center fit">
