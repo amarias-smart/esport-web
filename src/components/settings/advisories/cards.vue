@@ -10,11 +10,12 @@
         <q-btn
           fab-mini
           icon="mdi-close"
-          color="red"
+          color="red-12"
           :style="{
             position: 'absolute',
             'z-index': 1,
-            right: 0
+            top: '5px',
+            right: '5px'
           }"
           @click="deleteMe(pic)"
         />

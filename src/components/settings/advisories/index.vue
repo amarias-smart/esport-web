@@ -2,8 +2,12 @@
   <div class="q-pa-md">
     <CARDS :data="advisoryList" />
 
-    <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn fab icon="add" color="green" @click="openUploader" />
+    <q-page-sticky
+      position="bottom-right"
+      :offset="[18, 18]"
+      style="z-index: 2;"
+    >
+      <q-btn fab icon="add" color="light-green" @click="openUploader" />
     </q-page-sticky>
   </div>
 </template>
