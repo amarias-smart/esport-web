@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHr lpR lfr">
     <!-- HEADER -->
     <q-header elevated reveal>
       <q-toolbar>
@@ -62,6 +62,12 @@
     <q-page-container class="gradient-bg">
       <router-view />
     </q-page-container>
+
+    <q-footer elevated class="q-pa-lg text-primary">
+      <div class="text-weight-light text-center">
+        DEVELOPED BY AMARIAS
+      </div>
+    </q-footer>
   </q-layout>
 </template>
 
