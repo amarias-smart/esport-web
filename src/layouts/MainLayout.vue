@@ -3,7 +3,7 @@
     <!-- HEADER -->
     <q-header elevated reveal>
       <q-toolbar>
-        <q-img src="~assets/esport-min.png" width="100px" />
+        <q-img src="~assets/esport-min.png" width="120px" />
 
         <q-toolbar-title> </q-toolbar-title>
 
