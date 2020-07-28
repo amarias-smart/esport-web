@@ -9,18 +9,20 @@
 
       <q-separator />
 
-      <q-card-section>
+      <q-card-section class="q-gutter-md">
         <q-input
           outlined
           label="Title"
           v-model="event.title"
           :rules="[val => !!val || 'Field is required']"
+          bg-color="grey-3"
         />
 
         <q-editor
           v-model="event.contents"
           min-height="5rem"
           max-height="400px"
+          content-class="bg-grey-3"
         />
       </q-card-section>
 
@@ -37,7 +39,7 @@
           accept=".jpg, image/*"
           method="post"
           ref="uploader"
-          class="fit"
+          class="fit bg-grey-3"
           @uploaded="hasUploaded"
         />
       </q-card-section>

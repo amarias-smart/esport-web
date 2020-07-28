@@ -1,6 +1,6 @@
 <template>
   <q-layout view="hHr lpR fFr" class="gradient-bg">
-    <q-header bordered class="bg-primary text-white">
+    <q-header elevated class="bg-primary text-white">
       <q-toolbar>
         <q-toolbar-title>
           ESPortal
@@ -10,7 +10,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="drawer" side="right" bordered>
+    <q-drawer show-if-above v-model="drawer" side="right" elevated>
       <q-list class="fit" separator>
         <q-item-label header>Navigation:</q-item-label>
         <q-item clickable v-ripple exact to="/">
