@@ -1,13 +1,16 @@
 <template>
   <q-carousel
+    autoplay
     arrows
     animated
     infinite
     control-color="grey-6"
     :fullscreen.sync="fullscreen"
-    height="500px"
+    height="550px"
     v-model="slide"
     class="bg-grey-9"
+    transition-next="slide-left"
+    transition-prev="slide-right"
   >
     <q-carousel-slide
       v-for="(pic, i) in pics"
