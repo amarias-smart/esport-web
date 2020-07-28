@@ -21,7 +21,7 @@
       >
         <q-btn
           stack
-          class="fit text-white"
+          class="fit text-white q-py-sm"
           :style="`background: ${getPastel()}`"
           style="min-height: 100px;"
           @click="openUrl(app.url)"
