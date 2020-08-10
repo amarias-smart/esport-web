@@ -13,7 +13,7 @@
     <q-drawer show-if-above v-model="drawer" side="right" elevated>
       <q-list class="fit" separator>
         <q-item-label header>Navigation:</q-item-label>
-        <q-item clickable v-ripple exact to="/">
+        <q-item clickable v-ripple exact to="/Harbour">
           <q-item-section avatar>
             <q-icon name="mdi-home-outline" />
           </q-item-section>
