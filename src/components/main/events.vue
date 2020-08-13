@@ -57,8 +57,9 @@ export default {
 
   computed: {
     getEvents() {
+      let _this = this;
       return this.eventList.filter(
-        f => f.title.toLowerCase().indexOf(this.search) > -1
+        f => f.title.toLowerCase().indexOf(_this.search) > -1
       );
     }
   },
@@ -72,12 +73,13 @@ export default {
 
   methods: {
     seeMore(data) {
-      this.$axios.get(`api/get/event_images/${data.id}`).then(res => {
+      let _this = this;
+      _this.$axios.get(`api/get/event_images/${data.id}`).then(res => {
         data.attachments = res.data;
 
-        this.$q.dialog({
+        _this.$q.dialog({
           component: eventDetails,
-          parent: this,
+          parent: _this,
           data: data
         });
       });
@@ -85,9 +87,10 @@ export default {
   },
 
   created() {
-    this.$axios.get("api/get/event_list").then(
+    let _this = this;
+    _this.$axios.get("api/get/event_list").then(
       res =>
-        (this.eventList = res.data.map(m => {
+        (_this.eventList = res.data.map(m => {
           let timestamp = new Date(m.timestamp);
           m.timestamp = date.formatDate(timestamp, "Do MMM YYYY");
           m.attachments = JSON.parse(m.attachments);

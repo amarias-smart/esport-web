@@ -58,7 +58,8 @@ export default {
 
   computed: {
     getDowntimeList() {
-      return this.downtimeList.map(m => {
+      let _this = this;
+      return _this.downtimeList.map(m => {
         let timestamp = new Date(m.timestamp);
         m.timestamp = date.formatDate(timestamp, "Do MMM hh:mm A");
         return m;
@@ -67,16 +68,18 @@ export default {
   },
 
   created() {
+    let _this = this;
     this.$axios
       .get("api/get/downtime_list")
-      .then(res => (this.downtimeList = res.data));
+      .then(res => (_this.downtimeList = res.data));
   },
 
   methods: {
     viewDetails(data) {
-      this.$q.dialog({
+      let _this = this;
+      _this.$q.dialog({
         component: downtimeDetail,
-        parent: this,
+        parent: _this,
         data: data
       });
     }

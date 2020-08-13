@@ -59,14 +59,16 @@ export default {
 
   computed: {
     getApps() {
-      return this.apps.filter(
-        f => f.title.toLowerCase().indexOf(this.search) > -1
+      let _this = this;
+      return _this.apps.filter(
+        f => f.title.toLowerCase().indexOf(_this.search) > -1
       );
     }
   },
 
   created() {
-    this.$axios.get("api/get/app_list").then(res => (this.apps = res.data));
+    let _this = this;
+    _this.$axios.get("api/get/app_list").then(res => (_this.apps = res.data));
   },
 
   methods: {
