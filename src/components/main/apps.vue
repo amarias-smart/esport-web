@@ -16,13 +16,13 @@
     <q-card-section key="apps" class="row justify-center q-col-gutter-sm">
       <div
         class="col-12 col-xs-6 col-sm-4 col-md-3"
-        v-for="app in getApps"
+        v-for="(app, index) in getApps"
         :key="app.id"
       >
         <q-btn
           stack
           class="fit text-white q-py-sm"
-          :style="`background: ${getPastel()}`"
+          :class="index % 2 ? 'bg-red-5' : 'bg-green-5'"
           style="min-height: 100px;"
           @click="openUrl(app.url)"
         >
@@ -30,7 +30,7 @@
             v-if="isIcon(app.icon)"
             size="5em"
             :name="app.icon"
-            class="q-mb-sm"
+            class="q-mb-sm glow"
           />
           <q-avatar v-else square size="5em">
             <q-img :src="`uploads/apps/${app.icon}`" />
