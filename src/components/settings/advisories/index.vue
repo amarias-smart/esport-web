@@ -7,7 +7,12 @@
       :offset="[18, 18]"
       style="z-index: 2;"
     >
-      <q-btn fab icon="add" color="light-green" @click="openUploader" />
+      <q-btn
+        fab
+        icon="add"
+        color="light-green"
+        @click="openUploader"
+      />
     </q-page-sticky>
   </div>
 </template>
@@ -22,20 +27,20 @@ export default {
     CARDS: () => import("./cards")
   },
 
-  data() {
+  data () {
     return {
       advisoryList: []
     };
   },
 
-  created() {
+  created () {
     this.$axios
       .get("api/get/advisory_list")
-      .then(res => (this.advisoryList = res.data));
+      .then(res => (this.advisoryList = res.data.reverse()))
   },
 
   methods: {
-    openUploader() {
+    openUploader () {
       this.$q.dialog({
         component: uploader
       });

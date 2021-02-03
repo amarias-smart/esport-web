@@ -4,7 +4,8 @@ import axios from "axios";
 // const DEV = "http://localhost:64575/";
 const PROD = location.origin + "/esport/";
 
-if (process.env.PROD) axios.defaults.baseURL = PROD;
+if (process.env.PROD) { axios.defaults.baseURL = PROD; }
+
 axios.defaults.withCredentials = true;
 
 // const axiosInstance = axios.create({
