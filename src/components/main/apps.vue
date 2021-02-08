@@ -1,5 +1,9 @@
 <template>
-  <q-card flat bordered class="bg-grey-3">
+  <q-card
+    flat
+    bordered
+    class="bg-grey-3"
+  >
     <q-card-section class="row justify-center">
       <q-input
         label="search for an app or tool..."
@@ -9,11 +13,17 @@
         v-model="search"
         class="col-6"
       >
-        <q-icon slot="prepend" name="mdi-magnify" />
+        <q-icon
+          slot="prepend"
+          name="mdi-magnify"
+        />
       </q-input>
     </q-card-section>
 
-    <q-card-section key="apps" class="row justify-center q-col-gutter-sm">
+    <q-card-section
+      key="apps"
+      class="row justify-center q-col-gutter-sm"
+    >
       <div
         class="col-12 col-xs-6 col-sm-4 col-md-3"
         v-for="(app, index) in getApps"
@@ -32,7 +42,11 @@
             :name="app.icon"
             class="q-mb-sm glow"
           />
-          <q-avatar v-else square size="5em">
+          <q-avatar
+            v-else
+            square
+            size="5em"
+          >
             <q-img :src="`uploads/apps/${app.icon}`" />
           </q-avatar>
           <div class="text-grey-9 text-weight-bold">
@@ -50,7 +64,7 @@ import { openURL } from "quasar";
 export default {
   name: "apps",
 
-  data() {
+  data () {
     return {
       search: "",
       apps: []
@@ -58,7 +72,7 @@ export default {
   },
 
   computed: {
-    getApps() {
+    getApps () {
       let _this = this;
       return _this.apps.filter(
         f => f.title.toLowerCase().indexOf(_this.search) > -1
@@ -66,22 +80,27 @@ export default {
     }
   },
 
-  created() {
+  created () {
     let _this = this;
-    _this.$axios.get("api/get/app_list").then(res => (_this.apps = res.data));
+    _this.$axios.get("api/get/userz").then(res => {
+      let filter = res.data.length === 0 ? 'guest' : res.data[0].role
+
+      _this.$axios.get(`api/get/app_list?filter=${filter}`)
+        .then(res => (_this.apps = res.data));
+    });
   },
 
   methods: {
-    openUrl(url) {
+    openUrl (url) {
       openURL(url);
     },
-    getPastel(n) {
+    getPastel (n) {
       let hue = Math.floor(Math.random() * 360);
       let pastel = "hsl(" + hue + ", 100%, 80%)";
 
       return pastel;
     },
-    isIcon(icon) {
+    isIcon (icon) {
       return icon.indexOf("mdi-") === 0 ? true : false;
     }
   }

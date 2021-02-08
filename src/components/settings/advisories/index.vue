@@ -42,7 +42,8 @@ export default {
   methods: {
     openUploader () {
       this.$q.dialog({
-        component: uploader
+        component: uploader,
+        parent: this
       });
     }
   }

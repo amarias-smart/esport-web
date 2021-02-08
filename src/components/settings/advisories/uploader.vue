@@ -1,5 +1,8 @@
 <template>
-  <q-dialog ref="dialog" @hide="onDialogHide">
+  <q-dialog
+    ref="dialog"
+    @hide="onDialogHide"
+  >
     <q-card class="q-dialog-plugin">
       <!-- accept=".jpg, image/*" -->
       <q-uploader
@@ -11,11 +14,11 @@
         auto-upload
         label="Attach Image(s)"
         color="primary"
+        class="fit"
         url="api/post/upload_to/?path=advisories"
         accept=".jpg"
-        method="post"
-        class="fit"
         @uploaded="hasuploaded"
+        with-credentials
       />
     </q-card>
   </q-dialog>
@@ -27,29 +30,29 @@ export default {
     // ...your custom props
   },
 
-  data() {
+  data () {
     return {};
   },
 
   methods: {
-    hasuploaded() {
+    hasuploaded () {
       this.$router.go();
     },
 
-    show() {
+    show () {
       this.$refs.dialog.show();
     },
-    hide() {
+    hide () {
       this.$refs.dialog.hide();
     },
-    onDialogHide() {
+    onDialogHide () {
       this.$emit("hide");
     },
-    onOKClick() {
+    onOKClick () {
       this.$emit("ok");
       this.hide();
     },
-    onCancelClick() {
+    onCancelClick () {
       this.hide();
     }
   }
