@@ -52,6 +52,12 @@
           <div class="text-grey-9 text-weight-bold">
             {{ app.title }}
           </div>
+          <q-tooltip
+            content-class="bg-indigo"
+            :offset="[10, 10]"
+          >
+            {{ app.description }}
+          </q-tooltip>
         </q-btn>
       </div>
     </q-card-section>

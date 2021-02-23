@@ -9,8 +9,6 @@
     height="550px"
     v-model="slide"
     class="bg-grey-9"
-    transition-next="slide-left"
-    transition-prev="slide-right"
   >
     <q-carousel-slide
       v-for="(pic, i) in picsFiltered"
@@ -20,7 +18,7 @@
     >
       <q-scroll-area class="fit">
         <q-img
-          :src="'uploads/advisories/' + pic.filename"
+          :src="'uploads/advisories/' + pic.FileName"
           spinner-color="white"
         />
       </q-scroll-area>
@@ -29,23 +27,7 @@
     <template v-slot:control>
       <q-carousel-control
         position="top-right"
-        :offset="[18, 55]"
-        class="text-white rounded-borders"
-        style="background: rgba(0, 0, 0, .3); padding: 4px 8px;"
-      >
-        <q-select
-          outlined
-          dense
-          v-model="picMonth"
-          :options="picMonths"
-          label="Month"
-          style="width: 98px;"
-        />
-      </q-carousel-control>
-
-      <q-carousel-control
-        position="top-right"
-        :offset="[18, 18]"
+        :offset="[12, 10]"
         class="text-white rounded-borders"
         style="background: rgba(0, 0, 0, .3); padding: 4px 8px;"
       >
@@ -56,6 +38,43 @@
           v-model="autoplay"
           label="Auto Play"
         />
+      </q-carousel-control>
+
+      <q-carousel-control
+        position="top-right"
+        :offset="[12, 45]"
+        class="text-white rounded-borders"
+        style="background: rgba(0, 0, 0, .3); padding: 4px 8px;"
+      >
+        <q-select
+          borderless
+          dense
+          v-model="picMonth"
+          :options="picMonths"
+          label="Month"
+          style="width: 98px;"
+        />
+      </q-carousel-control>
+
+      <q-carousel-control
+        position="top-right"
+        :offset="[12, 100]"
+        class="text-white rounded-borders"
+        style="background: rgba(0, 0, 0, .3); padding: 4px 8px;"
+      >
+        <q-input
+          dense
+          borderless
+          color="white"
+          style="width: 98px;"
+          v-model="keyword"
+          label="keyword"
+          debounce="1000"
+        >
+          <template v-slot:append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
       </q-carousel-control>
 
       <q-carousel-control
@@ -84,6 +103,8 @@ export default {
       slide: 0,
       fullscreen: false,
       autoplay: true,
+      keyword: '',
+      tags: [],
       pics: [],
       picMonth: '',
       picMonths: []
@@ -94,8 +115,14 @@ export default {
     picsFiltered () {
       const _this = this
       return _this.pics.filter(f => {
-        return f.month.indexOf(_this.picMonth) > -1
+        const filterSubject = f.Subject.toUpperCase().indexOf(_this.picMonth) > -1
+        const filterKeyword = f.Tags.indexOf(_this.keyword) > -1
+
+        if (_this.picMonth.length > 0) return filterSubject
+        else if (_this.keyword.length > 0) return filterKeyword
+        else return filterSubject || filterKeyword
       });
+      return []
     }
   },
 
@@ -103,8 +130,11 @@ export default {
     this.$axios
       .get("api/get/advisory_list")
       .then(res => {
-        this.pics = res.data.reverse()
-        this.picMonths = [...new Set(res.data.map(m => m.month))]
+        const data = res.data.filter(f => f.Subject !== null && f.Tags !== null).reverse()
+
+        this.pics = data
+        this.picMonths = [...new Set(data.map(m => m.Subject.toUpperCase().substring(0, 3)))]
+        this.picMonths.unshift('')
       });
   }
 };

@@ -19,7 +19,7 @@
           }"
           @click="deleteMe(pic)"
         />
-        <q-img :src="`uploads/advisories/${pic.filename}`" />
+        <q-img :src="`uploads/advisories/${pic.FileName}`" />
       </q-card>
     </div>
   </div>
@@ -34,7 +34,7 @@ export default {
 
   methods: {
     deleteMe (file) {
-      const fileName = file.filename;
+      const fileName = file.FileName;
 
       this.$q
         .dialog({
