@@ -2,16 +2,16 @@
   <q-layout view="lHr lpR lfr">
     <!-- HEADER -->
     <q-header
-      elevated
       reveal
+      class="text-blue-grey bg-white"
     >
       <q-toolbar>
         <q-img
-          src="~assets/esport-min.png"
+          src="~assets/esport-min-slategray.png"
           width="120px"
         />
 
-        <q-toolbar-title> </q-toolbar-title>
+        <q-space />
 
         <q-btn
           round
@@ -76,6 +76,8 @@
           target="_blank"
         />
       </q-toolbar>
+
+      <!-- IE Warning -->
       <q-toolbar
         inset
         class="bg-red-3"
@@ -92,14 +94,12 @@
     </q-header>
 
     <!-- PAGE -->
-    <q-page-container class="gradient-bg">
+    <q-page-container>
       <router-view />
     </q-page-container>
 
-    <q-footer
-      elevated
-      class="q-pa-lg text-primary"
-    >
+    <!-- FOOTER -->
+    <q-footer class="q-pa-lg text-white bg-white">
       <div class="text-weight-light text-center">
         DEVELOPED BY AMARIAS
       </div>

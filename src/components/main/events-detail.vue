@@ -11,7 +11,12 @@
         <q-icon name="mdi-calendar" />
         <div>Event Details:</div>
         <q-space />
-        <q-btn dense flat icon="close" v-close-popup>
+        <q-btn
+          dense
+          flat
+          icon="close"
+          v-close-popup
+        >
           <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
         </q-btn>
       </q-bar>
@@ -27,18 +32,30 @@
         <div class="text-h4 text-weight-light text-center q-mb-lg">
           {{ data.title }}
         </div>
-        <q-separator spaced inset />
-        <div v-html="data.contents" style="width: 80%; margin: auto;"></div>
+        <q-separator
+          spaced
+          inset
+        />
+        <div
+          v-html="data.contents"
+          style="width: 80%; margin: auto;"
+        ></div>
       </q-card-section>
 
-      <q-card-section class="mansory cols" v-if="data.attachments.length > 1">
+      <q-card-section
+        class="mansory cols"
+        v-if="data.attachments.length > 1"
+      >
         <div
-          class="item shadow-3"
+          class="item"
           v-for="(pic, i) in data.attachments"
           :key="i"
           style="position: relative;"
         >
-          <q-card class="overflow-hidden">
+          <q-card
+            flat
+            class="overflow-hidden"
+          >
             <q-img :src="`uploads/events/${data.id}/${pic}`" />
           </q-card>
         </div>
@@ -52,24 +69,24 @@ export default {
   props: ["data"],
 
   methods: {
-    show() {
+    show () {
       this.$refs.dialog.show();
     },
 
-    hide() {
+    hide () {
       this.$refs.dialog.hide();
     },
 
-    onDialogHide() {
+    onDialogHide () {
       this.$emit("hide");
     },
 
-    onOKClick() {
+    onOKClick () {
       this.$emit("ok");
       this.hide();
     },
 
-    onCancelClick() {
+    onCancelClick () {
       this.hide();
     }
   }

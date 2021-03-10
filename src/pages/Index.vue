@@ -1,15 +1,33 @@
 <template>
-  <q-page padding class="row justify-center">
-    <q-card class="overflow-hidden col-10">
+  <q-page
+    padding
+    class="row justify-center"
+  >
+    <q-card
+      flat
+      class="overflow-hidden col-10"
+    >
       <advisories id="advisories" />
 
-      <betweens id="apps" bg="Red Sunset" title="Exclusive Selections" />
+      <betweens
+        id="apps"
+        bg="Red Sunset"
+        title="Exclusive Selections"
+      />
       <apps />
 
-      <betweens id="events" bg="Crystal Clear" title="Extra Scoop" />
+      <betweens
+        id="events"
+        bg="Crystal Clear"
+        title="Extra Scoop"
+      />
       <events />
 
-      <betweens id="downtime" bg="eXpresso" title="Enabling Systems" />
+      <betweens
+        id="downtime"
+        bg="eXpresso"
+        title="Enabling Systems"
+      />
       <downtime />
     </q-card>
   </q-page>

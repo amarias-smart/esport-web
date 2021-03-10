@@ -1,17 +1,18 @@
 <template>
   <q-card
     flat
-    bordered
     class="bg-grey-3"
   >
+    <!-- SEARCH -->
     <q-card-section class="row justify-center">
       <q-input
         label="search for an app or tool..."
         outlined
         rounded
         bg-color="white"
-        v-model="search"
         class="col-6"
+        v-model="search"
+        hint="Opening a shared path in modern browsers are disabled by default for security reasons"
       >
         <q-icon
           slot="prepend"
@@ -20,18 +21,20 @@
       </q-input>
     </q-card-section>
 
+    <!-- APP LIST -->
     <q-card-section
       key="apps"
       class="row justify-center q-col-gutter-sm"
     >
       <div
-        class="col-12 col-xs-6 col-sm-4 col-md-3"
+        class="col-12 col-xs-6 col-sm-3 col-md-2"
         v-for="(app, index) in getApps"
         :key="app.id"
       >
         <q-btn
+          unelevated
           stack
-          class="fit text-white q-py-sm"
+          class="fit text-white q-py-sm overflow-hidden"
           :class="index % 2 ? 'bg-red-5' : 'bg-green-5'"
           style="min-height: 100px;"
           @click="openUrl(app.url)"
