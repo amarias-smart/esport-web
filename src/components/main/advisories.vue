@@ -9,6 +9,7 @@
     height="550px"
     v-model="slide"
     class="bg-grey-9"
+    ref="advisoryCarousel"
   >
     <q-carousel-slide
       v-for="(pic, i) in picsFiltered"
@@ -123,6 +124,12 @@ export default {
         else return filterSubject || filterKeyword
       });
       return []
+    }
+  },
+
+  watch: {
+    picsFiltered () {
+      this.$refs.advisoryCarousel.next()
     }
   },
 

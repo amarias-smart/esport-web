@@ -3,10 +3,7 @@
     padding
     class="row justify-center"
   >
-    <q-card
-      flat
-      class="overflow-hidden col-10"
-    >
+    <q-card class="overflow-hidden col-10 shadow-10">
       <advisories id="advisories" />
 
       <betweens
