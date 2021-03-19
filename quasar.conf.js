@@ -94,7 +94,13 @@ module.exports = function (ctx) {
       importStrategy: "auto",
 
       // Quasar plugins
-      plugins: ["Dialog", "Notify"]
+      plugins: [
+        'Notify',
+        'Dialog',
+        'Loading',
+        'LoadingBar',
+        'AppFullscreen',
+      ]
     },
 
     // animations: 'all', // --- includes all animations

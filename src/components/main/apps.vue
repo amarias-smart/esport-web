@@ -19,6 +19,10 @@
           name="mdi-magnify"
         />
       </q-input>
+      <a
+        href="\\10.122.8.236\IRESCUE$\ENABLING CENTER\Expanded EC\IRAB\screen recording"
+        target="_blank"
+      >TEST</a>
     </q-card-section>
 
     <!-- APP LIST -->
@@ -32,6 +36,42 @@
         :key="app.id"
       >
         <q-btn
+          v-if="app.local"
+          unelevated
+          stack
+          class="fit text-white q-py-sm overflow-hidden"
+          :class="index % 2 ? 'bg-red-5' : 'bg-green-5'"
+          style="min-height: 100px;"
+          type="a"
+          :href="app.url"
+          target="_blank"
+        >
+          <q-icon
+            v-if="isIcon(app.icon)"
+            size="5em"
+            :name="app.icon"
+            class="q-mb-sm glow"
+          />
+          <q-avatar
+            v-else
+            square
+            size="5em"
+          >
+            <q-img :src="`uploads/apps/${app.icon}`" />
+          </q-avatar>
+          <div class="text-grey-9 text-weight-bold">
+            {{ app.title }}
+          </div>
+          <q-tooltip
+            content-class="bg-indigo"
+            :offset="[10, 10]"
+          >
+            {{ app.description }}
+          </q-tooltip>
+        </q-btn>
+
+        <q-btn
+          v-else
           unelevated
           stack
           class="fit text-white q-py-sm overflow-hidden"

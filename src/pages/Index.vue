@@ -4,19 +4,28 @@
     class="row justify-center"
   >
     <q-card class="overflow-hidden col-10 shadow-10">
-      <advisories id="advisories" />
+      <betweens
+        id="advisories"
+        bg="Digital Water"
+        title="Advisories"
+        caption="interact with options on the top-right of the slideshow"
+      />
+
+      <advisories />
 
       <betweens
         id="apps"
-        bg="Red Sunset"
+        bg="Crystal Clear"
         title="Exclusive Selections"
+        caption="a listing of our apps to help you sail through obstacles"
       />
       <apps />
 
       <betweens
         id="events"
-        bg="Crystal Clear"
+        bg="Red Sunset"
         title="Extra Scoop"
+        caption="events and articles to view"
       />
       <events />
 
@@ -24,6 +33,7 @@
         id="downtime"
         bg="eXpresso"
         title="Enabling Systems"
+        caption="downtime statuses filed from our ESolve"
       />
       <downtime />
     </q-card>

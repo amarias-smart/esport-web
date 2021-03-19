@@ -3,7 +3,7 @@
     <!-- HEADER -->
     <q-header
       reveal
-      class="text-blue-grey bg-white"
+      :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
     >
       <q-toolbar>
         <q-img
@@ -13,19 +13,23 @@
 
         <q-space />
 
+        <!-- TO ADVISORIES -->
         <q-btn
           round
           flat
           icon="mdi-newspaper"
+          :color="textColor"
           @click="scrollTo('advisories')"
         >
           <q-tooltip content-class="text-uppercase">advisories</q-tooltip>
         </q-btn>
 
+        <!-- TO APPS -->
         <q-btn
           round
           flat
           icon="mdi-apps"
+          :color="textColor"
           @click="scrollTo('apps')"
         >
           <q-tooltip content-class="text-uppercase">
@@ -33,47 +37,102 @@
           </q-tooltip>
         </q-btn>
 
+        <!-- TO EVENTS -->
         <q-btn
           round
           flat
           icon="mdi-calendar"
+          :color="textColor"
           @click="scrollTo('events')"
         >
           <q-tooltip content-class="text-uppercase">extra sccop</q-tooltip>
         </q-btn>
 
+        <!-- TO DOWNTIME -->
         <q-btn
           round
           flat
           icon="mdi-server-network"
+          :color="textColor"
           @click="scrollTo('downtime')"
         >
           <q-tooltip content-class="text-uppercase">enabling systems</q-tooltip>
         </q-btn>
 
+        <!-- TO SETTINGS -->
         <q-btn
           round
           flat
           icon="mdi-cog"
           to="/Settings"
+          :color="textColor"
           v-show="showSettings"
         >
           <q-tooltip content-class="text-uppercase">settings</q-tooltip>
         </q-btn>
 
+        <!-- MISC -->
+        <q-btn-dropdown
+          stretch
+          flat
+          label="misc"
+          :color="textColor"
+        >
+          <q-list>
+            <!-- INVERT COLOR -->
+            <q-item
+              clickable
+              v-close-popup
+              @click="$q.dark.toggle()"
+            >
+              <q-item-section avatar>
+                <q-avatar
+                  icon="mdi-invert-colors"
+                  color="accent"
+                  text-color="white"
+                />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label v-if="$q.dark.isActive">Light Mode</q-item-label>
+                <q-item-label v-else>Dark Mode</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <!-- FULLSCREEN -->
+            <q-item
+              clickable
+              v-close-popup
+              @click="$q.fullscreen.toggle()"
+            >
+              <q-item-section avatar>
+                <q-avatar
+                  :icon="$q.fullscreen.isActive ? 'fullscreen_exit' : 'fullscreen'"
+                  color="accent"
+                  text-color="white"
+                />
+              </q-item-section>
+              <q-item-section>
+                <q-item-label v-if="$q.fullscreen.isActive">Unfocus</q-item-label>
+                <q-item-label v-else>Focus</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+
         <q-separator
           vertical
           inset
-          dark
           spaced
         />
 
+        <!-- TO ESOLVE -->
         <q-btn
           flat
           label="esolve"
           type="a"
           href="http://10.122.8.236/esolve/"
           target="_blank"
+          :color="textColor"
         />
       </q-toolbar>
 
@@ -116,6 +175,10 @@ export default {
       user: [],
       showSettings: false
     };
+  },
+
+  computed: {
+    textColor () { return this.$q.dark.isActive ? 'grey-5' : 'grey-8' }
   },
 
   created () {
