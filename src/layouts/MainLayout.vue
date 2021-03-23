@@ -158,7 +158,10 @@
     </q-page-container>
 
     <!-- FOOTER -->
-    <q-footer class="q-pa-lg text-white bg-white">
+    <q-footer
+      class="q-pa-lg"
+      :class="$q.dark.isActive ? 'bg-grey-10 text-grey-10' : 'bg-grey-4 text-grey-4'"
+    >
       <div class="text-weight-light text-center">
         DEVELOPED BY AMARIAS
       </div>
