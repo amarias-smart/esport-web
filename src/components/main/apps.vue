@@ -1,15 +1,11 @@
 <template>
-  <q-card
-    flat
-    class="bg-grey-3"
-  >
+  <q-card flat>
     <!-- SEARCH -->
     <q-card-section class="row justify-center">
       <q-input
         label="search for an app or tool..."
         outlined
         rounded
-        bg-color="white"
         class="col-6"
         v-model="search"
         hint="Opening a shared path in modern browsers are disabled by default for security reasons"
@@ -19,10 +15,6 @@
           name="mdi-magnify"
         />
       </q-input>
-      <a
-        href="\\10.122.8.236\IRESCUE$\ENABLING CENTER\Expanded EC\IRAB\screen recording"
-        target="_blank"
-      >TEST</a>
     </q-card-section>
 
     <!-- APP LIST -->

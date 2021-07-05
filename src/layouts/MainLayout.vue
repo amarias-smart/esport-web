@@ -1,9 +1,12 @@
 <template>
-  <q-layout view="lHr lpR lfr">
+  <q-layout
+    view="lHr lpR lfr"
+    :class="$q.dark.isActive ? 'dark-gradient' : 'light-gradient'"
+  >
     <!-- HEADER -->
     <q-header
       reveal
-      :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-4'"
+      :class="$q.dark.isActive ? 'bg-grey-10' : 'bg-grey-3'"
     >
       <q-toolbar>
         <q-img
@@ -156,16 +159,6 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-
-    <!-- FOOTER -->
-    <q-footer
-      class="q-pa-lg"
-      :class="$q.dark.isActive ? 'bg-grey-10 text-grey-10' : 'bg-grey-4 text-grey-4'"
-    >
-      <div class="text-weight-light text-center">
-        DEVELOPED BY AMARIAS
-      </div>
-    </q-footer>
   </q-layout>
 </template>
 
@@ -203,9 +196,94 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gradient-bg {
+.gradient-bg2 {
   background: #e6dada;
   background: -webkit-linear-gradient(to bottom, #e6dada, #274046);
   background: linear-gradient(to bottom, #e6dada, #274046);
+}
+
+.light-gradient {
+  background: linear-gradient(315deg, #faffd1, #ffedbc, #faffd1);
+  background-size: 400% 400%;
+
+  -webkit-animation: lightGradient 30s ease infinite;
+  -moz-animation: lightGradient 30s ease infinite;
+  animation: lightGradient 30s ease infinite;
+}
+
+@-webkit-keyframes lightGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes lightGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes lightGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.dark-gradient {
+  background: linear-gradient(315deg, #232526, #203a43, #232526);
+  background-size: 400% 400%;
+
+  -webkit-animation: darkGradient 30s ease infinite;
+  -moz-animation: darkGradient 30s ease infinite;
+  animation: darkGradient 30s ease infinite;
+}
+@-webkit-keyframes darkGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes darkGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes darkGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>

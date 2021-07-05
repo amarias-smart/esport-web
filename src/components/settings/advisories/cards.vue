@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="mansory cols">
     <div
       class="item"

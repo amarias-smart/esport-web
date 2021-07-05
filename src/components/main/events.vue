@@ -2,7 +2,6 @@
   <q-card
     flat
     bordered
-    class="bg-grey-3"
   >
     <!-- SEARCH -->
     <q-card-section class="row justify-center">

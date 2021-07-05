@@ -1,5 +1,8 @@
 <template>
-  <q-card flat bordered class="bg-grey-3">
+  <q-card
+    flat
+    bordered
+  >
     <q-card-section
       class="row justify-center"
       v-if="getDowntimeList.length > 0"
@@ -18,24 +21,36 @@
           @click="viewDetails(event)"
         >
           <q-item-section avatar>
-            <q-icon :name="event.icon" :color="event.status" />
+            <q-icon
+              :name="event.icon"
+              :color="event.status"
+            />
           </q-item-section>
 
           <q-item-section>
             <q-item-label lines="1">{{ event.title }}</q-item-label>
-            <q-item-label caption lines="1">
+            <q-item-label
+              caption
+              lines="1"
+            >
               {{ event.description }}
             </q-item-label>
           </q-item-section>
 
-          <q-item-section side top>
+          <q-item-section
+            side
+            top
+          >
             {{ event.timestamp }}
           </q-item-section>
         </q-item>
       </q-list>
     </q-card-section>
 
-    <q-card-section v-else class="text-center">
+    <q-card-section
+      v-else
+      class="text-center"
+    >
       <div class="text-h5 text-weight-light text-purple">
         No new data to show yet...
       </div>
@@ -50,14 +65,14 @@ import downtimeDetail from "./downtime-detail";
 export default {
   name: "downtime",
 
-  data() {
+  data () {
     return {
       downtimeList: []
     };
   },
 
   computed: {
-    getDowntimeList() {
+    getDowntimeList () {
       let _this = this;
       return _this.downtimeList.map(m => {
         let timestamp = new Date(m.timestamp);
@@ -67,7 +82,7 @@ export default {
     }
   },
 
-  created() {
+  created () {
     let _this = this;
     this.$axios
       .get("api/get/downtime_list")
@@ -75,7 +90,7 @@ export default {
   },
 
   methods: {
-    viewDetails(data) {
+    viewDetails (data) {
       let _this = this;
       _this.$q.dialog({
         component: downtimeDetail,

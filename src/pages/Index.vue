@@ -6,16 +6,16 @@
     <q-card class="overflow-hidden col-10 shadow-10">
       <betweens
         id="advisories"
-        bg="Digital Water"
+        :bg="$q.dark.isActive ? 'Red Sunset' : 'Roseanna'"
         title="Advisories"
-        caption="interact with options on the top-right of the slideshow"
+        caption="interact with the options on the top-right of the slideshow"
       />
 
       <advisories />
 
       <betweens
         id="apps"
-        bg="Crystal Clear"
+        :bg="$q.dark.isActive ? 'Red Sunset' : 'Roseanna'"
         title="Exclusive Selections"
         caption="a listing of our apps to help you sail through obstacles"
       />
@@ -23,17 +23,17 @@
 
       <betweens
         id="events"
-        bg="Red Sunset"
+        :bg="$q.dark.isActive ? 'Red Sunset' : 'Roseanna'"
         title="Extra Scoop"
-        caption="events and articles to view"
+        caption="events and articles to look through"
       />
       <events />
 
       <betweens
         id="downtime"
-        bg="eXpresso"
+        :bg="$q.dark.isActive ? 'Red Sunset' : 'Roseanna'"
         title="Enabling Systems"
-        caption="downtime statuses filed from our ESolve"
+        caption="downtime statuses based from our ESolve"
       />
       <downtime />
     </q-card>

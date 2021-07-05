@@ -7,7 +7,7 @@
     transition-hide="slide-down"
   >
     <q-card class="q-dialog-plugin">
-      <q-bar class="bg-primary text-white">
+      <q-bar>
         <q-icon name="mdi-calendar" />
         <div>Event Details:</div>
         <q-space />
