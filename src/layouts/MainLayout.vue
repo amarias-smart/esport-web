@@ -203,87 +203,24 @@ export default {
 }
 
 .light-gradient {
-  background: linear-gradient(315deg, #faffd1, #ffedbc, #faffd1);
-  background-size: 400% 400%;
-
-  -webkit-animation: lightGradient 30s ease infinite;
-  -moz-animation: lightGradient 30s ease infinite;
-  animation: lightGradient 30s ease infinite;
-}
-
-@-webkit-keyframes lightGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes lightGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes lightGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background-image: radial-gradient(
+    circle 993px at 0.5% 50.5%,
+    rgba(137, 171, 245, 0.37) 0%,
+    rgba(245, 247, 252, 1) 100.2%
+  );
 }
 
 .dark-gradient {
-  background: linear-gradient(315deg, #232526, #203a43, #232526);
-  background-size: 400% 400%;
-
-  -webkit-animation: darkGradient 30s ease infinite;
-  -moz-animation: darkGradient 30s ease infinite;
-  animation: darkGradient 30s ease infinite;
-}
-@-webkit-keyframes darkGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@-moz-keyframes darkGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes darkGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #232526,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #232526,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 </style>

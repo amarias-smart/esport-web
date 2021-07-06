@@ -9,7 +9,6 @@
         label="search for an event..."
         outlined
         rounded
-        bg-color="white"
         v-model="search"
         class="col-6 col-md-8"
       >

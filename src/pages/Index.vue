@@ -3,7 +3,11 @@
     padding
     class="row justify-center"
   >
-    <q-card class="overflow-hidden col-10 shadow-10">
+    <q-card
+      flat
+      bordered
+      class="overflow-hidden col-10 shadow-10"
+    >
       <betweens
         id="advisories"
         :bg="$q.dark.isActive ? 'Red Sunset' : 'Roseanna'"
